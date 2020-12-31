@@ -1,24 +1,24 @@
-class GradeSystemFunctionProfessor(object):#±Ğ±Â¥\¯à
+class GradeSystemFunctionProfessor(object):#æ•™æˆåŠŸèƒ½
     def __init__(self, master=None):
-        self.root = master #©w¸q¤º³¡ÅÜ¼Æroot
+        self.root = master #å®šç¾©å…§éƒ¨è®Šæ•¸root
         self.root.geometry('%dx%d' % (1000, 800))
         self.createPage()  
-    def createPage(self):#¥D­¶­± 
-        self.InputPage = InputFrame(self.root) #¤Á´«¤£¦Pªº­¶­±
+    def createPage(self):#ä¸»é é¢ 
+        self.InputPage = InputFrame(self.root) #åˆ‡æ›ä¸åŒçš„é é¢
         self.ProfessorOutputPage = ProfessorOutputFrame(self.root)
         self.ListCoursePage = ListCourseFrame(self.root)
         self.ListCourseStudentPage = ListCourseStudentFrame(self.root)
-        self.InputPage.pack() #¹w³]¥ı¥X²{ªº¬O"¼W¥[¦¨ÁZ"ªº¤¶­±
-        self.menu = Menu(self.root)#³Ğ«Øµæ³æ
-        self.menu.add_command(label='·s¼W/­×§ï¦¨ÁZ', font=10,command = self.InputData)#¼W¥[©R¥O(¿ï¶µ)   
-        self.menu.add_command(label='¦C¥X½Òµ{¦¨ÁZ',font=10, command = self.ProfessorOutputData)
-        self.menu.add_command(label='¦C¥X½Òµ{²M³æ',font=10,command = self.ListCourse)
-        self.menu.add_command(label='¦C¥X½Òµ{¾Ç¥Í',font=10,command = self.ListCourseStudent)
-        self.menu.add_command(label='¤Á´«¨Ï¥ÎªÌ',font=10, command = self.ChangeUser)  
-        self.root['menu'] = self.menu#µæ³æÄæ¦ì 
+        self.InputPage.pack() #é è¨­å…ˆå‡ºç¾çš„æ˜¯"å¢åŠ æˆç¸¾"çš„ä»‹é¢
+        self.menu = Menu(self.root)#å‰µå»ºèœå–®
+        self.menu.add_command(label='æ–°å¢/ä¿®æ”¹æˆç¸¾', font=10,command = self.InputData)#å¢åŠ å‘½ä»¤(é¸é …)   
+        self.menu.add_command(label='åˆ—å‡ºèª²ç¨‹æˆç¸¾',font=10, command = self.ProfessorOutputData)
+        self.menu.add_command(label='åˆ—å‡ºèª²ç¨‹æ¸…å–®',font=10,command = self.ListCourse)
+        self.menu.add_command(label='åˆ—å‡ºèª²ç¨‹å­¸ç”Ÿ',font=10,command = self.ListCourseStudent)
+        self.menu.add_command(label='åˆ‡æ›ä½¿ç”¨è€…',font=10, command = self.ChangeUser)  
+        self.root['menu'] = self.menu#èœå–®æ¬„ä½ 
     def InputData(self):
-        self.InputPage.pack()#Åı¤¸¥ó¥X²{
-        self.ProfessorOutputPage.pack_forget()#Åı¤¸¥ó®ø¥¢
+        self.InputPage.pack()#è®“å…ƒä»¶å‡ºç¾
+        self.ProfessorOutputPage.pack_forget()#è®“å…ƒä»¶æ¶ˆå¤±
         self.ListCoursePage.pack_forget()
         self.ListCourseStudentPage.pack_forget()     
     def ProfessorOutputData(self):
@@ -48,7 +48,7 @@ class GradeSystemFunctionProfessor(object):#±Ğ±Â¥\¯à
 class ProfessorOutputFrame(Frame):
     def __init__(self, master=None):  
         Frame.__init__(self, master)  
-        self.root = master #©w¸q¤º³¡ÅÜ¼Æroot
+        self.root = master #å®šç¾©å…§éƒ¨è®Šæ•¸root
         self.E1 = Entry(self,font=10)
         self.E2 = Entry(self,font=10)
         self.E3 = Entry(self,font=10)
@@ -57,42 +57,42 @@ class ProfessorOutputFrame(Frame):
         self.createPage()
     def createPage(self):
         Label(self).grid(row=0, stick=W, pady=10)
-        Label(self, font=10, text = '¾Ç¦~: ').grid(row=1, stick=W, pady=10)
+        Label(self, font=10, text = 'å­¸å¹´: ').grid(row=1, stick=W, pady=10)
         self.E1.grid(row=1, column=1, stick=W)
-        Label(self,  font=10,text = '¾Ç´Á: ').grid(row=2, stick=W, pady=10)
+        Label(self,  font=10,text = 'å­¸æœŸ: ').grid(row=2, stick=W, pady=10)
         self.E2.grid(row=2, column=1, stick=W)
-        Label(self,  font=10,text = '½Òµ{¥N½X: ').grid(row=3, stick=W, pady=10)
+        Label(self,  font=10,text = 'èª²ç¨‹ä»£ç¢¼: ').grid(row=3, stick=W, pady=10)
         self.E3.grid(row=3, column=1, stick=W)
-        Label(self,  font=10,text = '¨Ï¥ÎªÌ¦WºÙ: ').grid(row=4, stick=W, pady=10)
+        Label(self,  font=10,text = 'ä½¿ç”¨è€…åç¨±: ').grid(row=4, stick=W, pady=10)
         self.E4.grid(row=4, column=1, stick=W)
-        Label(self,  font=10,text = '±K½X: ').grid(row=5, stick=W, pady=10)
+        Label(self,  font=10,text = 'å¯†ç¢¼: ').grid(row=5, stick=W, pady=10)
         self.E5.grid(row=5, column=1, stick=W)
-        self.tree=ttk.Treeview(self)#ªí®æ
-        self.tree["columns"]=("¾Ç¸¹","¾Ç¥Í©m¦W","¦¨ÁZ")
-        self.tree.column("¾Ç¸¹",width=100)#ªí¥Ü¦C,¤£Åã¥Ü
-        self.tree.column("¾Ç¥Í©m¦W",width=100)  
-        self.tree.column("¦¨ÁZ",width=100)
-        self.tree.heading("¾Ç¸¹",text="¾Ç¸¹")#Åã¥Ü¿öÀY
-        self.tree.heading("¾Ç¥Í©m¦W",text="¾Ç¥Í©m¦W")
-        self.tree.heading("¦¨ÁZ",text="¦¨ÁZ")
+        self.tree=ttk.Treeview(self)#è¡¨æ ¼
+        self.tree["columns"]=("å­¸è™Ÿ","å­¸ç”Ÿå§“å","æˆç¸¾")
+        self.tree.column("å­¸è™Ÿ",width=100)#è¡¨ç¤ºåˆ—,ä¸é¡¯ç¤º
+        self.tree.column("å­¸ç”Ÿå§“å",width=100)  
+        self.tree.column("æˆç¸¾",width=100)
+        self.tree.heading("å­¸è™Ÿ",text="å­¸è™Ÿ")#é¡¯ç¤ºéŒ¶é ­
+        self.tree.heading("å­¸ç”Ÿå§“å",text="å­¸ç”Ÿå§“å")
+        self.tree.heading("æˆç¸¾",text="æˆç¸¾")
         self.tree.grid(row=6, column=1, stick=W, pady=10)
-        Button(self, font=10, text='¦C¥X',command=self.search).grid(row=7, column=1, stick=E, pady=10)
+        Button(self, font=10, text='åˆ—å‡º',command=self.search).grid(row=7, column=1, stick=E, pady=10)
     def search(self):
         x=self.tree.get_children()
         for item in x:
-            self.tree.delete(item)#§R°£ªí®æ¤º¤¸¥ó
+            self.tree.delete(item)#åˆªé™¤è¡¨æ ¼å…§å…ƒä»¶
         year = self.E1.get()
         semester = self.E2.get()
         num = self.E3.get()
         username = self.E4.get()
         password = self.E5.get()
         if self.spacejudge(year) or self.spacejudge(semester) or self.spacejudge(num) or self.spacejudge(username) or self.spacejudge(password):
-            showinfo(title='´£¥Ü', message ="¥ô¤@¿é¤J¤£¥i¬°ªÅ")
+            showinfo(title='æç¤º', message ="ä»»ä¸€è¼¸å…¥ä¸å¯ç‚ºç©º")
         else:
             self.searchInfo(year,semester,num,username,password)
     def searchInfo(self,year,semester,num,username,password):
         temp2=0
-        f = open('./½Òµ{¸ê°T.csv','r',encoding='utf-8')
+        f = open('./èª²ç¨‹è³‡è¨Š.csv','r',encoding='utf-8')
         for line in f.readlines():
             info = line[:-1].split(",")
             if info[0] ==year and info[1] ==semester and info[2] ==num:
@@ -101,39 +101,39 @@ class ProfessorOutputFrame(Frame):
                 proname=info[5]
                 f.close()
         if temp2==0:
-            showinfo(title='´£¥Ü', message ="¨S¦³¦¹¾Ç´Á½Òµ{°T®§")
+            showinfo(title='æç¤º', message ="æ²’æœ‰æ­¤å­¸æœŸèª²ç¨‹è¨Šæ¯")
             f.close()
             return
         else:
             f.close
         temp3=0
-        f = open('./±b¸¹±K½X.csv','r',encoding='utf-8')
+        f = open('./å¸³è™Ÿå¯†ç¢¼.csv','r',encoding='utf-8')
         for line in f.readlines():
             info = line[:-1].split(",")
             if info[0] ==username and info[1] ==password and info[2] =='2' and info[3]==proname:
                 temp3=1
                 f.close()
         if temp3==0:
-            showinfo(title='¿ù»~', message ="¨­¤À»P½Òµ{±Ğ±Â¤£²Å")
+            showinfo(title='éŒ¯èª¤', message ="èº«åˆ†èˆ‡èª²ç¨‹æ•™æˆä¸ç¬¦")
             f.close
             return
         else:
             f.close
         temp=0
         i=0
-        f = open('./¾Ç¥Í¸ê°T.csv','r',encoding='utf-8')
+        f = open('./å­¸ç”Ÿè³‡è¨Š.csv','r',encoding='utf-8')
         for line in f.readlines():
             info = line[:-1].split(",")
             if info[0] ==year and info[1] ==semester and info[2] ==num and info[6]=='1':
                 temp=1
-                self.tree.insert("",i,text=classname ,values=(info[3],info[4],info[5])) #´¡¤J¸ê®Æ
+                self.tree.insert("",i,text=classname ,values=(info[3],info[4],info[5])) #æ’å…¥è³‡æ–™
                 i+=1
         if temp==0:
-            showinfo(title='´£¥Ü', message ="¦¹¾Ç´Á½Òµ{¨S¦³¦¹¾Ç¥Íªº°T®§")
+            showinfo(title='æç¤º', message ="æ­¤å­¸æœŸèª²ç¨‹æ²’æœ‰æ­¤å­¸ç”Ÿçš„è¨Šæ¯")
             f.close()
             return
         else:
-            showinfo(title='´£¥Ü', message ="¤w¦C¥Xªí®æ")
+            showinfo(title='æç¤º', message ="å·²åˆ—å‡ºè¡¨æ ¼")
             f.close()
             return
     def spacejudge(self,text):
@@ -151,45 +151,45 @@ class ProfessorOutputFrame(Frame):
 class ListCourseStudentFrame(Frame):
     def __init__(self, master=None):  
         Frame.__init__(self, master)  
-        self.root = master #©w¸q¤º³¡ÅÜ¼Æroot
+        self.root = master #å®šç¾©å…§éƒ¨è®Šæ•¸root
         self.E1 = Entry(self,font=10)
         self.E2 = Entry(self,font=10)
         self.E3 = Entry(self,font=10)
         self.createPage()
     def createPage(self):
         Label(self).grid(row=0, stick=W, pady=10)
-        Label(self, font=10, text = '¾Ç¦~: ').grid(row=1, stick=W, pady=10)
+        Label(self, font=10, text = 'å­¸å¹´: ').grid(row=1, stick=W, pady=10)
         self.E1.grid(row=1, column=1, stick=W)
-        Label(self,  font=10,text = '¾Ç´Á: ').grid(row=2, stick=W, pady=10)
+        Label(self,  font=10,text = 'å­¸æœŸ: ').grid(row=2, stick=W, pady=10)
         self.E2.grid(row=2, column=1, stick=W)
-        Label(self,  font=10,text = '½Òµ{¥N½X: ').grid(row=3, stick=W, pady=10)
+        Label(self,  font=10,text = 'èª²ç¨‹ä»£ç¢¼: ').grid(row=3, stick=W, pady=10)
         self.E3.grid(row=3, column=1, stick=W)
-        self.tree=ttk.Treeview(self)#ªí®æ
-        self.tree["columns"]=("¥N½X","¾Ç¸¹","¾Ç¥Í©m¦W")
-        self.tree.column("¥N½X",width=100)   #ªí¥Ü¦C,¤£Åã¥Ü
-        self.tree.column("¾Ç¸¹",width=100)
-        self.tree.column("¾Ç¥Í©m¦W",width=100)  
-        self.tree.heading("¥N½X",text="¥N½X")  #Åã¥Ü¿öÀY
-        self.tree.heading("¾Ç¸¹",text="¾Ç¸¹")
-        self.tree.heading("¾Ç¥Í©m¦W",text="¾Ç¥Í©m¦W")
+        self.tree=ttk.Treeview(self)#è¡¨æ ¼
+        self.tree["columns"]=("ä»£ç¢¼","å­¸è™Ÿ","å­¸ç”Ÿå§“å")
+        self.tree.column("ä»£ç¢¼",width=100)   #è¡¨ç¤ºåˆ—,ä¸é¡¯ç¤º
+        self.tree.column("å­¸è™Ÿ",width=100)
+        self.tree.column("å­¸ç”Ÿå§“å",width=100)  
+        self.tree.heading("ä»£ç¢¼",text="ä»£ç¢¼")  #é¡¯ç¤ºéŒ¶é ­
+        self.tree.heading("å­¸è™Ÿ",text="å­¸è™Ÿ")
+        self.tree.heading("å­¸ç”Ÿå§“å",text="å­¸ç”Ÿå§“å")
         self.tree.grid(row=4, column=1, stick=W, pady=10)
-        Button(self, font=10, text='¬d¸ß',command=self.search).grid(row=6, column=1, stick=E, pady=10)
+        Button(self, font=10, text='æŸ¥è©¢',command=self.search).grid(row=6, column=1, stick=E, pady=10)
     def search(self):
         x=self.tree.get_children()
         for item in x:
-            self.tree.delete(item)#§R°£ªí®æ¤º¤¸¥ó
+            self.tree.delete(item)#åˆªé™¤è¡¨æ ¼å…§å…ƒä»¶
         year = self.E1.get()
         semester = self.E2.get()
         num = self.E3.get()
         if self.spacejudge(year) or self.spacejudge(semester) or self.spacejudge(num):
-            showinfo(title='´£¥Ü', message ="¥ô¤@¿é¤J¤£¥i¬°ªÅ")
+            showinfo(title='æç¤º', message ="ä»»ä¸€è¼¸å…¥ä¸å¯ç‚ºç©º")
         else:
             self.searchInfo(year,semester,num)
     def searchInfo(self,year,semester,num):
         temp=0
         temp2=0
         i=0
-        f = open('./½Òµ{¸ê°T.csv','r',encoding='utf-8')
+        f = open('./èª²ç¨‹è³‡è¨Š.csv','r',encoding='utf-8')
         for line in f.readlines():
             info = line[:-1].split(",")
             if info[0] ==year and info[1] ==semester and info[2] ==num:
@@ -197,24 +197,24 @@ class ListCourseStudentFrame(Frame):
                 classname=info[3]
                 f.close()
         if temp2==0:
-            showinfo(title='´£¥Ü', message ="¨S¦³¦¹¾Ç´Á½Òµ{°T®§")
+            showinfo(title='æç¤º', message ="æ²’æœ‰æ­¤å­¸æœŸèª²ç¨‹è¨Šæ¯")
             f.close()
             return
         else:
             f.close
-        f = open('./¾Ç¥Í¸ê°T.csv','r',encoding='utf-8')
+        f = open('./å­¸ç”Ÿè³‡è¨Š.csv','r',encoding='utf-8')
         for line in f.readlines():
             info = line[:-1].split(",")
             if info[0] ==year and info[1] ==semester and info[2] ==num:
                 temp=1
-                self.tree.insert("",i,text=classname ,values=(info[2],info[3],info[4])) #´¡¤J¸ê®Æ
+                self.tree.insert("",i,text=classname ,values=(info[2],info[3],info[4])) #æ’å…¥è³‡æ–™
                 i+=1
         if temp==0:
-            showinfo(title='´£¥Ü', message ="¨S¦³¦¹¾Ç´Á½Òµ{ªº¾Ç¥Í°T®§")
+            showinfo(title='æç¤º', message ="æ²’æœ‰æ­¤å­¸æœŸèª²ç¨‹çš„å­¸ç”Ÿè¨Šæ¯")
             f.close()
             return
         else:
-            showinfo(title='´£¥Ü', message ="¤w¦C¥Xªí®æ")
+            showinfo(title='æç¤º', message ="å·²åˆ—å‡ºè¡¨æ ¼")
             f.close()
             return
     def spacejudge(self,text):
